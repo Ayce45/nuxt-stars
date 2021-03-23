@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply bg-white dark:bg-black;
+}
+
+.tooltip {
+  @apply invisible absolute w-32 -top-1 -left-12;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}
