@@ -13,3 +13,7 @@ html {
 .has-tooltip:hover .tooltip {
   @apply visible z-50;
 }
+
+main {
+  background-size: cover !important;
+}

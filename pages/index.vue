@@ -5,13 +5,16 @@
       background: 'url(' + apod.url + ') no-repeat center center fixed',
     }"
   >
-    <p v-if="$fetchState.pending" class="dark:text-white text-black">
+    <p v-if="$fetchState.pending" class="dark:text-white text-black absolute">
       Fetching planets....
     </p>
-    <p v-else-if="$fetchState.error" class="dark:text-white text-black">
+    <p
+      v-else-if="$fetchState.error"
+      class="dark:text-white text-black absolute"
+    >
       Error while fetching planets
     </p>
-    <div>
+    <div v-else>
       <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-200 mb-5">
         Planets
       </h1>
@@ -155,9 +158,5 @@ export default {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-}
-
-main {
-  background-size: cover !important;
 }
 </style>

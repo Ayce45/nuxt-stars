@@ -5,8 +5,15 @@
       background: 'url(' + apod.url + ') no-repeat center center fixed',
     }"
   >
-    <p v-if="$fetchState.pending">Fetching the planet....</p>
-    <p v-else-if="$fetchState.error">Error while fetching the planet</p>
+    <p v-if="$fetchState.pending" class="dark:text-white text-black absolute">
+      Fetching the planet....
+    </p>
+    <p
+      v-else-if="$fetchState.error"
+      class="dark:text-white text-black absolute"
+    >
+      Error while fetching the planet
+    </p>
     <div v-else>
       <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-200 mb-5">
         {{ planet().title }}
@@ -79,9 +86,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-main {
-  background-size: cover !important;
-}
-</style>
