@@ -1,10 +1,17 @@
 # nuxt-stars
 
-Application de liste d'astre sur une petite api
+Application de liste d'astre
+
 ## Features
+* 🔙 APOD for background
+* 🧠 Search input 
+* 💖 Store for love and planets
+* 💄 Tailwind for css
+* 🪐 Images size by planet size
+* 🧪 Jest for test
 
 ## Screenshot
-
+![ezgif-3-7230ca52db12](https://user-images.githubusercontent.com/32338891/112851428-4072ba00-90ab-11eb-876a-10069f9b1991.gif)
 
 ## Build Setup
 
