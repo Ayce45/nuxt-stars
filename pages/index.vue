@@ -170,15 +170,11 @@ export default {
   data() {
     return {
       planets: [],
-      apod: [],
       search: '',
     }
   },
   async fetch() {
     this.planets = await this.$content('planets').fetch()
-    this.apod = await fetch(
-      'https://api.nasa.gov/planetary/apod?api_key=dAgZIz2a6coyDBWHXT3By2hRD0zYSRbwmgRtXBtT'
-    ).then((res) => res.json())
   },
   computed: {
     loves() {
@@ -186,6 +182,9 @@ export default {
     },
     modalVisibility() {
       return this.$store.state.modal.visible
+    },
+    apod() {
+      return this.$store.state.apod.data
     },
     filteredPlanets() {
       if (this.search !== '')
