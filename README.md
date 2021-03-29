@@ -1,5 +1,11 @@
 # nuxt-stars
 
+Application de liste d'astre sur une petite api
+## Features
+
+## Screenshot
+
+
 ## Build Setup
 
 ```bash
