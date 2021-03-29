@@ -5,16 +5,7 @@
       background: 'url(' + apod.url + ') no-repeat center center fixed',
     }"
   >
-    <p v-if="$fetchState.pending" class="dark:text-white text-black absolute">
-      Fetching the planet....
-    </p>
-    <p
-      v-else-if="$fetchState.error"
-      class="dark:text-white text-black absolute"
-    >
-      Error while fetching the planet
-    </p>
-    <div v-else>
+    <div>
       <h1
         class="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-200 mb-5 ml-5"
       >
@@ -104,23 +95,21 @@ export default {
       })
     },
   },
-  data() {
-    return {
-      planets: {},
-      apod: [],
-    }
-  },
   async fetch() {
-    this.planets = await this.$content('planets').fetch()
-    this.apod = await fetch(
-      'https://api.nasa.gov/planetary/apod?api_key=dAgZIz2a6coyDBWHXT3By2hRD0zYSRbwmgRtXBtT'
-    ).then((res) => res.json())
+    await this.$store.dispatch('planets/getPlanets')
+    await this.$store.dispatch('apod/getApod')
   },
   computed: {
     planet() {
       return this.planets.find(
         (planet) => planet.slug === this.$route.params.slug
       )
+    },
+    planets() {
+      return this.$store.state.planets.data
+    },
+    apod() {
+      return this.$store.state.apod.data
     },
   },
   methods: {
